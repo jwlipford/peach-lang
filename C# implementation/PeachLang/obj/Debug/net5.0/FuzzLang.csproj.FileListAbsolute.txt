@@ -1,0 +1,16 @@
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\FuzzLang.exe
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\FuzzLang.deps.json
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\FuzzLang.runtimeconfig.json
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\FuzzLang.runtimeconfig.dev.json
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\FuzzLang.dll
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\ref\FuzzLang.dll
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\bin\Debug\net5.0\FuzzLang.pdb
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.csproj.AssemblyReference.cache
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.AssemblyInfoInputs.cache
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.AssemblyInfo.cs
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.csproj.CoreCompileInputs.cache
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.dll
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\ref\FuzzLang.dll
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.pdb
+C:\Users\Jeffrey Lipford\source\repos\FuzzLang\obj\Debug\net5.0\FuzzLang.genruntimeconfig.cache
