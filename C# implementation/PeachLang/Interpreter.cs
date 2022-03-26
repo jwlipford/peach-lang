@@ -11,11 +11,13 @@ namespace PeachLang {
 		private enum UnaryPostfixOp { GetOnePercent }
 		private enum BinaryOp {
 			IsEqual, IsLess, IsMore, IsNotEqual, IsLessOrEqual, IsMoreOrEqual,
-			Add, Subtract, Multiply, Divide, Raise,
+			Add, AbsDiff, Multiply, Divide, Raise,
 			Min, Avg, Max, Disjunct,
 		}
 
-		// Dictionary of nonnumeric tokens and corresponding strings
+		/// <summary>
+		/// Dictionary of nonnumeric tokens and corresponding strings
+		/// </summary>
 		private static readonly Dictionary<object, string> _tokensAndStringsDictionary = new () {
 			{ Seperator.Open, "("},
 			{ Seperator.Close, ")" },
@@ -30,7 +32,7 @@ namespace PeachLang {
 			{ BinaryOp.IsLessOrEqual, "<=" },
 			{ BinaryOp.IsMoreOrEqual, ">=" },
 			{ BinaryOp.Add, "+" },
-			{ BinaryOp.Subtract, "-" },
+			{ BinaryOp.AbsDiff, "-" },
 			{ BinaryOp.Multiply, "*" },
 			{ BinaryOp.Divide, "/" },
 			{ BinaryOp.Raise, "^" },
@@ -40,14 +42,19 @@ namespace PeachLang {
 			{ BinaryOp.Disjunct, "$" }
 		};
 
-		// Converts parameter token to string using _tokensAndStringsDictionary. If token is not
-		// in _tokensAndStringsDictionary, assumes token is a number and uses toString().
+		/// <summary>
+		/// Converts parameter <c>token</c> to a string using <c>_tokensAndStringsDictionary</c>.
+		/// If <c>token</c> is not in <c>_tokensAndStringsDictionary</c>, assumes token is a number and
+		/// uses <c>toString()</c>.
+		/// </summary>
 		private static string _tokenToString(object token) {
 			if (_tokensAndStringsDictionary.TryGetValue (token, out string value)) return value;
 			else return token.ToString ();
 		}
 
-		// Converts multiple tokens to a single string
+		/// <summary>
+		/// Converts multiple tokens to a single using the <c>tokenToString</c> method
+		/// </summary>
 		private static string _tokensToString (ArrayList tokens) {
 			StringBuilder str = new (capacity: tokens.Count * 8); // should be plenty of capacity
 			foreach (object token in tokens) {
@@ -56,10 +63,14 @@ namespace PeachLang {
 			return str.ToString ();
 		}
 
-		// Tries to convert characters c and d to a nonnumeric token. If both can be converted,
-		// they are, and the method returns 2; otherwise, if c can be converted, it is, and
-		// the method returns 1; otherwise, the method returns 0. To convert a single character,
-		// pass (char)0 or similar as d.
+		/// <summary>
+		/// Tries to convert characters <c>c</c> and <c>d</c> to a nonnumeric <c>token</c>.
+		/// To convert a single character, pass it as <c>c</c> and <c>(char)0</c> or similar as
+		/// <c>d</c>.
+		/// If both characters can be converted, they are, and the method returns 2;
+		/// otherwise, if <c>c</c> can be converted, it is, and the method returns 1;
+		/// otherwise, the method returns 0.
+		/// </summary>
 		private static int _tryConvert2CharsToToken(char c, char d, out object token) {
 			switch(c) {
 				case '(': token = Seperator.Open; return 1;
@@ -70,7 +81,7 @@ namespace PeachLang {
 				case '$': token = BinaryOp.Disjunct; return 1;
 				case '%': token = UnaryPostfixOp.GetOnePercent; return 1;
 				case '+': token = BinaryOp.Add; return 1;
-				case '-': token = BinaryOp.Subtract; return 1;
+				case '-': token = BinaryOp.AbsDiff; return 1;
 				case '*': token = BinaryOp.Multiply; return 1;
 				case '/': token = BinaryOp.Divide; return 1;
 				case '^': token = BinaryOp.Raise; return 1;
@@ -100,11 +111,16 @@ namespace PeachLang {
 			}
 		}
 
-		// Whether character c is one of the 11 numeric characters ".0123456789"
+		/// <summary>
+		/// Checks whether a character is one of the 11 numeric characters ".0123456789"
+		/// </summary>
 		private static bool _isNumericChar (char c) => '0' <= c && c <= '9' || c == '.';
 
-		// Returns the number starting at index i in string input. Sets i to the index immediately
-		// after the number. If a valid number is not found, returns -1 and sets err.
+		/// <summary>
+		/// Returns the number starting at index <c>i</c> in string <c>input</c>.
+		/// Sets <c>i</c> to the index immediately after the number.
+		/// If a valid number is not found, returns -1 and sets <c>err</c>.
+		/// </summary>
 		private static decimal _scanNum (string input, ref int i, out string err) {
 			int h = i;
 			do ++i; while (i < input.Length && _isNumericChar (input[i]));
@@ -114,9 +130,12 @@ namespace PeachLang {
 			return parsed ? num : -1m;
 		}
 
-		// Returns the token (number, variable, or nonnumeric token) starting at index i in string input.
-		// Sets i to the index immediately after the token. If a valid token is not found, returns -1 and
-		// sets err.
+		/// <summary>
+		/// Returns the token (number, variable, or nonnumeric token) starting at index <c>i</c> in
+		/// string <c>input</c>.
+		/// Sets <c>i</c> to the index immediately after the token. If a valid token is not found,
+		/// returns -1 and sets <c>err</c>.
+		/// </summary>
 		private static object _scanToken(string input, ref int i, out string err) {
 			char c = input[i];
 			if (_isNumericChar (c)) {
@@ -136,9 +155,13 @@ namespace PeachLang {
 			}
 		}
 
-		// Attempts to convert the part of expr starting at index i to a single number. If
-		// unsuccessful, sets err and errI and returns -1. If the error occured at a specific
-		// location in expr, sets errI to that location; otherwise sets errI to -1.
+		/// <summary>
+		/// Attempts to convert the part of <c>expr</c> starting at index <c>i</c> to a single
+		/// number.
+		/// If unsuccessful, sets <c>err</c> and <c>errI</c> and returns -1;
+		/// additionally, if the error occured at a specific location in <c>expr</c>,
+		/// sets <c>errI</c> to that location; otherwise sets <c>errI</c> to -1.
+		/// </summary>
 		private static decimal _parseExpression (string expr, int i, out int errI, out string err) {
 			ArrayList tokens = new ();
 			err = null;
@@ -150,38 +173,48 @@ namespace PeachLang {
 				_append (tokens, token, out err);
 				if (err != null) break;
 			}
-			errI = i < expr.Length ? errI : -1;
-			if (err != null || tokens.Count != 1) {
-				err = $"Expression reduced to \"" +_tokensToString (tokens) +
-					(i < expr.Length ? "...\"" : '"') + (err == null ? string.Empty : $". {err}.");
+			if (err != null) {
+				err = $"Expression reduced to \"{_tokensToString (tokens)}...\" {err}.";
+				return -1;
+			}
+
+			errI = -1;
+			if (tokens.Count != 1) {
+				err = $"Expression reduced to \"{_tokensToString (tokens)}\"";
 				return -1;
 			}
 			if (tokens[0] is not decimal d) {
-				err = $"Expression reduced to non-numeric token {_tokenToString (tokens[0])}";
+				err = $"Expression reduced to non-numeric token \"{_tokenToString (tokens[0])}\"";
 				return -1;
 			}
 			return d;
 		}
 
-		// Memory for the language's 52 available variables, each represented by a single
-		// character: {'A', 'B', ..., 'Z', 'a', 'b', ..., 'z'}
-		private static decimal[] _vars = new decimal[52] {
+		/// <summary>
+		/// Memory for the language's 52 available variables, each represented by a single
+		/// character: {'A', 'B', ..., 'Z', 'a', 'b', ..., 'z'}
+		/// </summary>
+		private static readonly decimal[] _vars = new decimal[52] {
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 		};
 
-		// Returns the index in _vars corresponding to character var. If var is not a valid
-		// variable, returns -1.
+		/// <summary>
+		/// Returns the index in <c>_vars</c> corresponding to character <c>var</c>. If <c>var</c>
+		/// is not a valid variable, returns -1.
+		/// </summary>
 		private static int _varIndex (char var) =>
 			var < 'A' ? -1 :
 			var <= 'Z' ? var - 'A' :
 			var < 'a' ? -1 :
 			var <= 'z' ? var - 'a' + 26 : -1;
 
-		// Returns the value stored in var. If var is not a valid variable or has not been assigned,
-		// returns -1 and sets err.
+		/// <summary>
+		/// Returns the value stored in <c>var</c>. If <c>var</c> is not a valid variable or has
+		/// not been assigned, returns -1 and sets err.
+		/// </summary>
 		private static decimal _getVar (char var, out string err) {
 			int index = _varIndex (var);
 			if (index < 0) {
@@ -193,16 +226,24 @@ namespace PeachLang {
 			return value;
 		}
 
-		// Parses a user-entered input string. If input is a valid expression, returns its result;
-		// if input is a valid assignment, returns null; if input is invalid, sets err.
+		/// <summary>
+		/// Parses a user-entered input string.
+		/// If <c>input</c> is a valid expression, its result is returned.
+		/// If <c>input</c> is a valid assignment, <c>null</c> is returned.
+		/// If <c>input</c> is invalid, <c>err</c> is set and some object is returned.
+		/// </summary>
 		public static object ParseInput (string input, out string err) {
 			return ParseInput (input, out int _, out err);
 		}
 
-		// Parses a user-entered input string. If input is a valid expression, returns its result;
-		// if input is a valid assignment, returns null. If input is invalid, sets err, and if the
-		// error occured at a specific location in expr, sets errI to that location; otherwise sets
-		// errI to -1.
+		/// <summary>
+		/// Parses a user-entered input string.
+		/// If <c>input</c> is a valid expression, its result is returned.
+		/// If <c>input</c> is a valid assignment, <c>null</c> is returned.
+		/// If <c>input</c> is invalid, <c>err</c> is set, and some object is returned;
+		/// additionally, if the error occured at a specific location in input,
+		/// <c>errI</c> is set to that location; otherwise, <c>errI</c> is set to -1.
+		/// </summary>
 		public static object ParseInput (string input, out int errI, out string err) {
 			if (input.Length < 2 || input[1] != ':') {
 				return _parseExpression (input, 0, out errI, out err);

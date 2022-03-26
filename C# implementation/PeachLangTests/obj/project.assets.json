@@ -6138,11 +6138,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLangTests\\PeachLangTests.csproj",
+      "projectUniqueName": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLangTests\\PeachLangTests.csproj",
       "projectName": "PeachLangTests",
-      "projectPath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLangTests\\PeachLangTests.csproj",
+      "projectPath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLangTests\\PeachLangTests.csproj",
       "packagesPath": "C:\\Users\\Jeffrey Lipford\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLangTests\\obj\\",
+      "outputPath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLangTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jeffrey Lipford\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6159,8 +6159,8 @@
         "net5.0": {
           "targetAlias": ".NETCoreApp,Version=v5.0",
           "projectReferences": {
-            "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLang\\PeachLang.csproj": {
-              "projectPath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLang\\PeachLang.csproj"
+            "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLang\\PeachLang.csproj": {
+              "projectPath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLang\\PeachLang.csproj"
             }
           }
         }

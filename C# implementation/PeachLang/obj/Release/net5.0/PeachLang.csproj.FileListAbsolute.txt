@@ -29,3 +29,19 @@ C:\Users\Jeffrey Lipford\source\repos\PeachLang\obj\Release\net5.0\PeachLang.dll
 C:\Users\Jeffrey Lipford\source\repos\PeachLang\obj\Release\net5.0\ref\PeachLang.dll
 C:\Users\Jeffrey Lipford\source\repos\PeachLang\obj\Release\net5.0\PeachLang.pdb
 C:\Users\Jeffrey Lipford\source\repos\PeachLang\obj\Release\net5.0\PeachLang.genruntimeconfig.cache
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\PeachLang.exe
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\PeachLang.deps.json
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\PeachLang.runtimeconfig.json
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\PeachLang.runtimeconfig.dev.json
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\PeachLang.dll
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\ref\PeachLang.dll
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\bin\Release\net5.0\PeachLang.pdb
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.csproj.AssemblyReference.cache
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.AssemblyInfoInputs.cache
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.AssemblyInfo.cs
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.csproj.CoreCompileInputs.cache
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.dll
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\ref\PeachLang.dll
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.pdb
+C:\Users\Jeffrey Lipford\Documents\GitHub\peach-lang\C# implementation\PeachLang\obj\Release\net5.0\PeachLang.genruntimeconfig.cache

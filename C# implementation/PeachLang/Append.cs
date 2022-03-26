@@ -2,6 +2,14 @@
 
 namespace PeachLang {
 	public static partial class Interpreter {
+		/// <summary>
+		/// Tries to append <c>token</c>, which should be a unary prefix operator or open seperator
+		/// ("<c>(</c>"), to list <c>tokens</c>.
+		/// If the previous token is a unary prefix operator, binary prefix operator, or open
+		/// seperator, or does not exist (<c>tokens</c> is empty),
+		/// then this method succeeds and <c>err</c> is set to null;
+		/// otherwise, <c>err</c> is set to an appropriate error message.
+		/// </summary>
 		private static void _appendUnaryPrefixOpOrSeperatorOpen (ArrayList tokens, object token, out string err) {
 			object prior = (tokens.Count == 0) ? null : tokens[^1];
 			err = (prior == null || prior is UnaryPrefixOp || prior is BinaryOp || prior is Seperator.Open)
@@ -10,6 +18,12 @@ namespace PeachLang {
 				tokens.Add (token);
 		}
 
+		/// <summary>
+		/// Tries to append a close seperator ("<c>)</c>") to list <c>tokens</c>.
+		/// If the previous two tokens are an open seperator ("<c>(</c>") and a number,
+		/// then this method succeeds and <c>err</c> is set to null;
+		/// otherwise, <c>err</c> is set to an appropriate error message.
+		/// </summary>
 		private static void _appendSeperatorClose (ArrayList tokens, out string err) {
 			if (tokens.Count == 0) {
 				err = "\")\" was first token";
@@ -30,6 +44,15 @@ namespace PeachLang {
 			}
 		}
 
+		/// <summary>
+		/// Tries to append <c>token</c>, a unary postfix operator, to list <c>tokens</c>.
+		/// If the previous token is a number, then this method succeeds;
+		/// otherwise, <c>err</c> is set to an appropriate error message.
+		/// </summary>
+		/// <remarks>
+		/// Only one unary postfix operator is supported: the "one percent" operator "<c>%</c>".
+		/// This method is included simply for the sake of extensibility.
+		/// </remarks>
 		private static void _appendUnaryPostfixOp (ArrayList tokens, UnaryPostfixOp u, out string err) {
 			if (tokens.Count == 0) {
 				err = $"Unary postfix operator \"{_tokenToString (u)}\" was first token";
@@ -52,8 +75,8 @@ namespace PeachLang {
 				err = $"Binary operator \"{_tokenToString(b)}\" was first token";
 			}
 			else if (tokens[^1] is not decimal) {
-				err = $"Binary operator \"{_tokenToString (b)}\" appended after non-numeric token "
-					+ _tokenToString (tokens[^1]);
+				err = $"Binary operator \"{_tokenToString (b)}\" " +
+					$"appended after non-numeric token \"{_tokenToString (tokens[^1])}\"";
 			}
 			else {
 				tokens.Add (b);
@@ -92,7 +115,7 @@ namespace PeachLang {
 					}
 				}
 				else {
-					err = $"number {d} appended after token {_tokenToString (prior)}";
+					err = $"number {d} appended after token \"{_tokenToString (prior)}\"";
 				}
 			}
 		}

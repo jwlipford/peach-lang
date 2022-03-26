@@ -64,16 +64,16 @@ namespace PeachLang {
 			while (input.EndsWith ('\\')) {
 				input = input[..^1] + _readLineWithColor (_inputColor);
 			}
-			Stopwatch sw = new ();
-			sw.Start ();
+			Stopwatch stopwatch = new ();
+			stopwatch.Start ();
 			object result = Interpreter.ParseInput (input, out int errI, out string err);
-			sw.Stop ();
+			stopwatch.Stop ();
 			if (err != null) {
 				_writeLineWithColor (
 					(errI < 0) ? err : new string (' ', _promptLength + errI) + "^\n" + err, _errorColor);
 			}
 			else if (result != null) {
-				_writeLineWithColor ($"{result}\t[{sw.ElapsedMilliseconds} ms]", _outputColor);
+				_writeLineWithColor ($"{result}\t[{stopwatch.ElapsedTicks * 0.0001m} ms]", _outputColor);
 			}
 			return true;
 		}
@@ -91,15 +91,16 @@ namespace PeachLang {
 			"  Negation, possibility, certainity: ~ <> []\n" +
 			"  One percent (postfix): %\n" +
 			"Binary operators\n" +
-			"  Standard arithmetic and comparison: + - * / ^ = ~= < <= > >=\n" +
+			"  Comparison:  = ~= < <= > >=\n" +
+			"  Sum, product, quotient: + * /\n" +
+			"  Absolute difference, disjunction (sum minus product), exponent: - $ ^\n" +
 			"  Minimum, average, maximum: ! @ #\n" +
-			"  Disjunction (sum minus product): $\n" +
 			"Operators do not have precedence. Use parentheses for grouping.\n" +
 			"(`) [expression]\n" +
 			"  Display result of expression\n" +
-			"Use \"\\\" to continue an expression on the next line\n" +
-			"(`) p:[expression]" +
+			"(`) p:[expression]\n" +
 			"  Assign result of expression to variable p\n" +
-			"52 variables are available, represented by the 46 case-sensitive letters\n";
+			"52 variables are available, represented by the letters A-Z and a-z.\n" +
+			"Use \"\\\" to continue an expression on the next line\n";
 	}
 }

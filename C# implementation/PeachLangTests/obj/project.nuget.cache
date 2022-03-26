@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2h+Na5mwU0lQSHbpJoOEDWZ1VG79OgYD6bOb+wSh3T1S7WCPepW9UCOhGL8naBZ+FwQ97v2HQqLnVE8vj7OvPw==",
+  "dgSpecHash": "kNvVRZnoR1YxHguGNPVJ3OVCdza5pERAotavx5MhEAKr+sqZvb1cWDgsJiuGsqpuL+QqureJ8AyOKGqaSo/UsQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLangTests\\PeachLangTests.csproj",
+  "projectFilePath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLangTests\\PeachLangTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeffrey Lipford\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Jeffrey Lipford\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

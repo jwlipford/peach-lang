@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1JVp9jTfEA9Xk78rk9pHWxUi4OR5OZ5yKbKZoClsxdDbV+42hMn7aKhV0P4Fr3nx8RDMc+eOKeCNI8sPIAteCg==",
+  "dgSpecHash": "V58dXG1Rc6Egr3/Hobcp0IgJHeJw2bZr+YockSr9v881AhFsBGp2Ck/Y3qCKMDfkNMExeLYFphwY8k8QBpe7nA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLang\\PeachLang.csproj",
+  "projectFilePath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLang\\PeachLang.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jeffrey Lipford\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\Jeffrey Lipford\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",

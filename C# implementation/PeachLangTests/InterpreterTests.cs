@@ -108,8 +108,8 @@ namespace PeachLang.Tests {
 		public void TestSubtraction () {
 			Assert.AreEqual (0.6m, ParseInput (string.Concat (0.8m, '-', 0.2m), out string err));
 			Assert.IsNull (err);
-			ParseInput (string.Concat (0.8m, '-', 1), out err);
-			Assert.IsNotNull (err);
+			Assert.AreEqual (98m, ParseInput (string.Concat (1m, '-', 99m), out err));
+			Assert.IsNull (err);
 		}
 
 		[TestMethod ("Test division")]

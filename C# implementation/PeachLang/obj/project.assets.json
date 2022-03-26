@@ -246,11 +246,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLang\\PeachLang.csproj",
+      "projectUniqueName": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLang\\PeachLang.csproj",
       "projectName": "PeachLang",
-      "projectPath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLang\\PeachLang.csproj",
+      "projectPath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLang\\PeachLang.csproj",
       "packagesPath": "C:\\Users\\Jeffrey Lipford\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Jeffrey Lipford\\source\\repos\\PeachLang\\obj\\",
+      "outputPath": "C:\\Users\\Jeffrey Lipford\\Documents\\GitHub\\peach-lang\\C# implementation\\PeachLang\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Jeffrey Lipford\\AppData\\Roaming\\NuGet\\NuGet.Config",
